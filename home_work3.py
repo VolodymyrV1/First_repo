@@ -5,8 +5,8 @@ def get_days_from_today(date):
     current_day = datetime.now()
     delta_days = (date_format - current_day).days
     if delta_days <= 0:
-        delta_days_modul = delta_days
-        delta_days_modul = abs(delta_days_modul)
+        delta_days_modul = 0
+        delta_days_modul += abs(delta_days)
         print(f'This date was {delta_days_modul} days ago.')
     else:
         print(f'This date will be in {delta_days} days.')
