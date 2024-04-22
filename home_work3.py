@@ -2,7 +2,7 @@ from datetime import datetime
 
 def get_days_from_today(date):
     date_format = datetime.strptime(date, '%Y-%m-%d')
-    current_day = datetime.now()
+    current_day = datetime.today()
     delta_days = (date_format - current_day).days
     if delta_days <= 0:
         delta_days_modul = 0
@@ -13,3 +13,5 @@ def get_days_from_today(date):
 
 date = input('Enter your date YYYY-MM-DD: ')
 get_days_from_today(date)
+
+
