@@ -1,4 +1,5 @@
 from datetime import datetime
+import random
 
 def get_days_from_today(date):
     date_format = datetime.strptime(date, '%Y-%m-%d')
@@ -13,5 +14,21 @@ def get_days_from_today(date):
 
 date = input('Enter your date YYYY-MM-DD: ')
 get_days_from_today(date)
+
+''''''
+print('-' *60)
+''''''
+
+def get_number_random(x, y, v):
+    a = []
+    range_list = list(range(x, y))
+    a += range_list
+    winer_numbers = random.sample(a, k=6)
+    print(f'Winners are people who have numbers {sorted(winer_numbers)}.')
+
+x = 1
+y = 50
+v = 6
+get_number_random(x, y, v)
 
 
