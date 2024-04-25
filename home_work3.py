@@ -1,6 +1,8 @@
 from datetime import datetime
 import random
 
+#Exs_1
+
 def get_days_from_today(date):
     date_format = datetime.strptime(date, '%Y-%m-%d')
     current_day = datetime.today()
@@ -16,8 +18,9 @@ date = input('Enter your date YYYY-MM-DD: ')
 get_days_from_today(date)
 
 ''''''
-print('-' *60)
+print('-' *60) #split
 ''''''
+#Exs_2
 
 def get_number_random(x, y, v):
     a = []
