@@ -1,11 +1,13 @@
 #Exs_1
-from datetime import datetime
-
 def get_days_from_today(date):
-    date_format = datetime.strptime(date, '%Y-%m-%d').date()
-    today_date = datetime.today().date()
-    delta_days = (date_format - today_date).days
-    return delta_days
+    try:
+        date_format = datetime.strptime(date, '%Y-%m-%d').date()
+        today_date = datetime.today().date()
+        delta_days = (date_format - today_date).days
+        return delta_days
+    except ValueError:
+        text_mesage = input('Enter your date in format YYYY-MM-DD: ')
+        return get_days_from_today(text_mesage)
     
 date = input('Enter your date YYYY-MM-DD: ')
 print(get_days_from_today(date))
@@ -18,20 +20,26 @@ print('-' *60) #split
 #Exs_2
 import random
 
-def get_number_random(x, y, v):
+def get_numbers_ticket(min, max, quantity):
     list_numbers = []
-    if v == 0 or x <=0 or y >50:
+    try:
+        if min < 1 or max > 1000 or min > max:
+            return list_numbers
+        if (max - min) < quantity:
+            return list_numbers 
+        else:
+            range_list = list(range(min, max))
+            list_numbers += range_list
+            winer_numbers = sorted(random.sample(list_numbers, k=quantity))
+            return winer_numbers
+    except ValueError:
         return list_numbers
-    else:
-        range_list = list(range(x, y))
-        list_numbers += range_list
-        winer_numbers = sorted(random.sample(list_numbers, k=v))
-        return winer_numbers
 
-x = 1
-y = 50
-v = 6
-print(get_number_random(x, y, v))
+
+min = int(input('Enter your min number: '))
+max = int(input('Enter your max number: '))
+quantity = int(input('Enter your quantity: '))
+print(get_numbers_ticket(min, max, quantity))
 
 ''''''
 print('-' *60) #split
