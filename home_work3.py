@@ -1,4 +1,7 @@
 #Exs_1
+
+from datetime import datetime
+
 def get_days_from_today(date):
     try:
         date_format = datetime.strptime(date, '%Y-%m-%d').date()
@@ -6,8 +9,7 @@ def get_days_from_today(date):
         delta_days = (date_format - today_date).days
         return delta_days
     except ValueError:
-        text_mesage = input('Enter your date in format YYYY-MM-DD: ')
-        return get_days_from_today(text_mesage)
+        return 
     
 date = input('Enter your date YYYY-MM-DD: ')
 print(get_days_from_today(date))
@@ -50,20 +52,20 @@ print('-' *60) #split
 
 import re
 
-def normalize_phone(phone_numbers):
-    for phone in phone_numbers:
-        cleaned_number = re.sub(r'\D', '', phone)
-        if not cleaned_number.startswith('+'):
-            if cleaned_number.startswith('380'):
-                cleaned_number = '+' + cleaned_number
-            else:
-                cleaned_number = '+38' + cleaned_number
-
-        return cleaned_number
-
 phone_numbers = [
 "    +38(050)123-32-34"
 ]
-print(normalize_phone(phone_numbers))
+for phone in phone_numbers:
+    cleaned_number = re.sub(r'\D', '', phone)
+    if not cleaned_number.startswith('+'):
+        if cleaned_number.startswith('380'):
+            cleaned_number = '+' + cleaned_number
+        else:
+            cleaned_number = '+38' + cleaned_number
+    print(f'{cleaned_number}')
+
+''''''
+print('-' *60) #split
+''''''
 
 
